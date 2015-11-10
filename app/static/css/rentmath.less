@@ -1,0 +1,238 @@
+// Raw Colors
+@white: white;
+@black: black;
+@dark1: #A4A4A4;
+@dark2: #424242;
+@dark3: #2E2E2E;
+@dark4: #151515;
+@green1: #2ecc71;
+@green2: #27ae60;
+@yellow1: #f1c40f;
+@yellow2: #f39c12;
+@blue: #0091ff;
+@yellow: #FFF3A5;
+@grey1: #ecf0f1;
+@grey2: #bdc3c7;
+@grey3: #95a5a6;
+@grey4: #7f8c8d;
+@cream: #F3F1EB;
+@orange1: #e67e22;
+@orange2: #d35400;
+@purple1: #9b59b6;
+@purple2: #8e44ad;
+@navy1: #34495e;
+@navy2: #2c3e50;
+@teal1: #1abc9c;
+@teal2: #16a085;
+@teal3: #00876C;
+@red1: #e74c3c;
+@red2: #c0392b;
+@blue1: #3498db;
+@blue2: #2980b9;
+@emerald: #2EBD59;
+
+// Site Colors
+@footer-bg-color: @green2;
+@footer-font-color: @white;
+@footer-link-color: @white;
+@link-color: @green2;
+@link-hover-color: @green1;
+@article-title-color: @green2;
+@official-font-color: @blue;
+
+
+body {
+    color: ghostwhite;
+    font-family: 'Open Sans', sans-serif;
+    background-color: #16a085;
+//    min-width: 460px; /* suppose you want minimum width of 1000px */
+//    width: auto !important;  /* Firefox will set width as auto */
+//    width: 460px;
+}
+
+button {
+    display: inline-block;
+    margin: 0 10px 0 0;
+    padding: 8px 40px;
+    font-size: 20px;
+    font-family: "Open Sans", sans-serif;
+    line-height: 1.8;
+    appearance: none;
+    box-shadow: none;
+    border-radius: 0;
+}
+button:focus {
+    outline: none;
+}
+
+// Bootstrap hamburger menu color
+.navbar-default .navbar-toggle {
+    border-color: white;
+    background-color: @navy1;
+    .icon-bar {
+        background-color: white;
+    }
+}
+.navbar-default .navbar-toggle:hover {
+    border-color: @navy1;
+    background-color: white;
+    .icon-bar {
+        background-color: @navy1;
+    }
+}
+.navbar-default .navbar-toggle:active {
+    border-color: white;
+    background-color: @navy1;
+    .icon-bar {
+        background-color: white;
+    }
+}
+.navbar-default .navbar-toggle:focus {
+    border-color: white;
+    background-color: @navy1;
+    .icon-bar {
+        background-color: white;
+    }
+}
+
+.border-button {
+    color: @emerald;
+    background-color: white;
+    border: solid 3px @emerald;
+    padding: 7px 30px;
+    display: inline-block;
+    margin: 0 10px 0 0;
+    text-align: center;
+    text-decoration: none;
+}
+.border-button:hover {
+    text-decoration: none;
+    color: @emerald;
+}
+
+.outline-button {
+    color: @navy1;
+    background-color: @teal1;
+    border: solid 2px @navy1;
+    padding: 10px 40px;
+    display: inline-block;
+    margin: 0 10px 0 0;
+    text-align: center;
+    text-decoration: none;
+    font-size: 16px;
+}
+.outline-button:hover {
+    text-decoration: none;
+    color: @navy2;
+}
+
+.navbar {
+    background: none;
+    border: none;
+}
+.navbar-default .navbar-brand {
+    color: white;
+}
+.navbar-default .navbar-brand:hover {
+    color: white;
+}
+
+.navbar-default .navbar-nav {
+    color: white;
+    li a {
+        color: white;
+    }
+    li a:hover {
+        color: white;
+    }
+}
+
+.top {
+    .container {
+        background: none;
+        padding-top: 10px;
+        padding-bottom: 10px;
+    }
+    background: none;
+    color: @white;
+    font-family: 'Open Sans', sans-serif;
+    font-weight: 300;
+    font-size: 26px;
+    a {
+        color: @white;
+        text-decoration: none;
+    }
+}
+
+.middle {
+    .container {
+      background: none;
+    }
+    background: none;
+    padding-top: 30px;
+    padding-bottom: 100px;
+}
+
+.bottom {
+    .container {
+        background-color: @navy2;
+    }
+    background-color: @navy2;
+    padding-top: 40px;
+    padding-bottom: 38px;
+    .footer {
+        a {
+            color: ghostwhite;
+        }
+    }
+}
+
+.flash-messages {
+    background-color: @yellow2;
+    padding: 20px 20px 10px 20px;
+    font-size: 20px;
+    color: white;
+    .container {
+        background: none;
+    }
+    ul {
+        list-style-type: none;
+    }
+}
+
+.article-well {
+    font-size: 18px;
+    font-weight: 400;
+    padding-top: 10px;
+    padding-bottom: 50px;
+    h2 {
+        font-size: 32px;
+        font-weight: 300;
+        margin-top: 50px;
+    }
+    h3 {
+        font-size: 28px;
+        font-weight: 300;
+        padding-top: 10px;
+    }
+    a {
+        color: @yellow1;
+    }
+}
+
+.home-box {
+    background: none;
+    margin-top: 100px;
+    text-align: center;
+    p {
+        font-size: 30px;
+        font-weight: 300;
+    }
+}
+
+a.temp {
+    color: white;
+    font-size: 20px;
+    text-decoration: none;
+
+}

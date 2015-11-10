@@ -1,0 +1,9 @@
+*.py[cod]
+*.~
+
+# PyCharm
+.idea
+
+# Temp files
+*.pid
+celerybeat-schedule
