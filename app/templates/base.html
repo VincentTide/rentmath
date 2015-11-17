@@ -17,6 +17,10 @@
         <link href="/static/css/rentmath.css" rel="stylesheet" type="text/css">
 
 
+        <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+        <script src="//ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
+
+
         {% block extra_css %}{% endblock %}
         {% block extra_js %}{% endblock %}
         {% block extra_head %}{% endblock %}
@@ -86,11 +90,11 @@
         </div>
 
 
-        <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
-        <script src="//ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
+
         <!-- Include all compiled plugins (below), or include individual files as needed -->
         <script src="//cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.5/js/bootstrap.min.js"></script>
         {{ moment.include_moment() }}
+        {% block body_end %}{% endblock %}
 
         {#    Google Analytics #}
 

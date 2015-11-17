@@ -1,0 +1,62 @@
+{% extends "base.html" %}
+
+{% block title %}RentMath - Rental Property Income Calculator{% endblock %}
+
+{% block meta %}
+<meta name="description" content="Rental property income calculator.">
+{% endblock %}
+
+{% block extra_js %}
+<script src="/static/js/rentmath.js"></script>
+{% endblock %}
+
+
+{% block content %}
+
+<div class="middle">
+    <div class="container">
+
+
+        <div class="article-well">
+
+
+            <p>
+                Purchase Price: {{ result.purchase_price }}<br>
+                Closing Cost: {{ result.closing_cost }}<br>
+                Repair Cost: {{ result.repair_cost }}<br>
+                Project Cost: {{ result.project_cost }}<br>
+                <br>
+                Mortgage: {{ result.loan_payment }}<br>
+                Property Tax: {{ result.property_tax }}<br>
+                Insurance: {{ result.hazard_insurance }}<br>
+                Utilities: {{ result.utilities }}<br>
+                Vacancy: {{ result.vacancy }}<br>
+                Repairs: {{ result.repairs }}<br>
+                CapEx: {{ result.capex }}<br>
+                Management: {{ result.management }}<br>
+                Total Expenses: {{ result.expenses_total }}<br>
+                Cash Flow: {{ result.cash_flow }}<br>
+                Net Operating Income: {{ result.net_operating_income }}<br>
+                Cap Rate: {{ result.cap_rate }}<br>
+                Cash on Cash Return: {{ result.cash_on_cash_return }}<br>
+
+
+
+
+
+            </p>
+
+
+
+
+
+
+        </div>
+
+
+    </div>
+</div>
+
+
+
+{% endblock %}
