@@ -1,0 +1,228 @@
+{% extends "base.html" %}
+
+{% block title %}RentMath - Rental Property Income Calculator{% endblock %}
+
+{% block meta %}
+<meta name="description" content="Rental property income calculator.">
+{% endblock %}
+
+{% block extra_js %}
+<script src="/static/js/rentmath.js"></script>
+{% endblock %}
+
+
+{% block content %}
+
+<div class="middle">
+    <div class="container">
+
+
+        <div class="article-well">
+
+
+            <h2>{{ result.property_name }}</h2>
+
+            <table class="table table-striped" style="max-width:500px;">
+                <thead>
+                <tr>
+                    <th>Property Details</th>
+                </tr>
+                </thead>
+                <tbody>
+                <tr>
+                    <td>Purchase Price</td>
+                    <td class="inconsolata text-right">{{ result.purchase_price }}</td>
+                </tr>
+                <tr>
+                    <td>Closing Cost</td>
+                    <td class="inconsolata text-right">{{ result.closing_cost }}</td>
+                </tr>
+                <tr>
+                    <td>Repair Cost</td>
+                    <td class="inconsolata text-right">{{ result.repair_cost }}</td>
+                </tr>
+                <tr>
+                    <td>Total Project Cost</td>
+                    <td class="inconsolata text-right">{{ result.project_cost }}</td>
+                </tr>
+                </tbody>
+            </table>
+
+
+            <table class="table table-striped" style="max-width:500px;">
+                <thead>
+                <tr>
+                    <th>Down Payment</th>
+                </tr>
+                </thead>
+                <tbody>
+                <tr>
+                    <td>Down Payment %</td>
+                    <td class="inconsolata text-right">{{ result.down_payment_percent }}%</td>
+                </tr>
+                <tr>
+                    <td>Down Payment Amount</td>
+                    <td class="inconsolata text-right">{{ result.down_payment_amount }}</td>
+                </tr>
+                <tr>
+                    <td>Total Cash Needed</td>
+                    <td class="inconsolata text-right">{{ result.cash_needed }}</td>
+                </tr>
+
+                </tbody>
+            </table>
+
+
+            <table class="table table-striped" style="max-width:500px;">
+                <thead>
+                <tr>
+                    <th>Loan Terms</th>
+                </tr>
+                </thead>
+                <tbody>
+                <tr>
+                    <td>Loan Amount</td>
+                    <td class="inconsolata text-right">{{ result.loan_amount }}</td>
+                </tr>
+                <tr>
+                    <td>Loan Years</td>
+                    <td class="inconsolata text-right">{{ result.loan_period_years }}</td>
+                </tr>
+                <tr>
+                    <td>Interest Rate</td>
+                    <td class="inconsolata text-right">{{ result.loan_interest_rate_percent }}%</td>
+                </tr>
+                </tbody>
+            </table>
+
+
+            <table class="table table-striped" style="max-width:500px;">
+                <thead>
+                <tr>
+                    <th>Expenses</th>
+                </tr>
+                </thead>
+                <tbody>
+                <tr>
+                    <td>Loan Principal & Interest</td>
+                    <td class="inconsolata text-right">{{ result.loan_payment }}</td>
+                </tr>
+                <tr>
+                    <td>Property Tax</td>
+                    <td class="inconsolata text-right">{{ result.property_tax }}</td>
+                </tr>
+                <tr>
+                    <td>Hazard Insurance</td>
+                    <td class="inconsolata text-right">{{ result.hazard_insurance }}</td>
+                </tr>
+                <tr>
+                    <td>Flood Insurance</td>
+                    <td class="inconsolata text-right">{{ result.flood_insurance }}</td>
+                </tr>
+                <tr>
+                    <td>Utilities ({{ result.utilities_percent }}%)</td>
+                    <td class="inconsolata text-right">{{ result.utilities }}</td>
+                </tr>
+                <tr>
+                    <td>Vacancy ({{ result.vacancy_percent }}%)</td>
+                    <td class="inconsolata text-right">{{ result.vacancy }}</td>
+                </tr>
+                <tr>
+                    <td>Repairs & Maintenance ({{ result.repairs_percent }}%)</td>
+                    <td class="inconsolata text-right">{{ result.repairs }}</td>
+                </tr>
+                <tr>
+                    <td>CapEx ({{ result.capex_percent }}%)</td>
+                    <td class="inconsolata text-right">{{ result.capex }}</td>
+                </tr>
+                <tr>
+                    <td>Property Management ({{ result.management_percent }}%)</td>
+                    <td class="inconsolata text-right">{{ result.management }}</td>
+                </tr>
+                <tr>
+                    <td>HOA Fees</td>
+                    <td class="inconsolata text-right">{{ result.hoa }}</td>
+                </tr>
+                <tr>
+                    <td>Misc Expenses</td>
+                    <td class="inconsolata text-right">{{ result.misc_expense }}</td>
+                </tr>
+                <tr>
+                    <td>Total Expenses</td>
+                    <td class="inconsolata text-right">{{ result.expenses_total }}</td>
+                </tr>
+
+                </tbody>
+            </table>
+
+
+            <table class="table table-striped" style="max-width:500px;">
+                <thead>
+                <tr>
+                    <th>Income</th>
+                </tr>
+                </thead>
+                <tbody>
+                <tr>
+                    <td>Rental Income</td>
+                    <td class="inconsolata text-right">{{ result.rental_income }}</td>
+                </tr>
+                <tr>
+                    <td>Misc Income</td>
+                    <td class="inconsolata text-right">{{ result.misc_income }}</td>
+                </tr>
+                <tr>
+                    <td>Total Income</td>
+                    <td class="inconsolata text-right">{{ result.total_income }}</td>
+                </tr>
+
+                </tbody>
+            </table>
+
+
+            <table class="table table-striped" style="max-width:500px;">
+                <thead>
+                <tr>
+                    <th>Summary</th>
+                </tr>
+                </thead>
+                <tbody>
+                <tr>
+                    <td>Cash Flow - Monthly</td>
+                    <td class="inconsolata text-right">{{ result.cash_flow }}</td>
+                </tr>
+                <tr>
+                    <td>Cash Flow Per Unit</td>
+                    <td class="inconsolata text-right">{{ result.cash_flow_per_unit }}</td>
+                </tr>
+                <tr>
+                    <td>Net Operating Income - Monthly</td>
+                    <td class="inconsolata text-right">{{ result.net_operating_income }}</td>
+                </tr>
+                <tr>
+                    <td>Capitalization Rate</td>
+                    <td class="inconsolata text-right">{{ result.cap_rate }}%</td>
+                </tr>
+                <tr>
+                    <td>Cash on Cash Return</td>
+                    <td class="inconsolata text-right">{{ result.cash_on_cash_return }}%</td>
+                </tr>
+                </tbody>
+            </table>
+
+
+
+
+
+
+
+
+        </div>
+
+
+    </div>
+</div>
+
+
+
+{% endblock %}

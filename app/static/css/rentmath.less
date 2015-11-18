@@ -42,9 +42,9 @@
 
 
 body {
-    color: ghostwhite;
+    color: @black;
     font-family: 'Open Sans', sans-serif;
-    background-color: #16a085;
+    background-color: @grey1;
 //    min-width: 460px; /* suppose you want minimum width of 1000px */
 //    width: auto !important;  /* Firefox will set width as auto */
 //    width: 460px;
@@ -131,19 +131,19 @@ button:focus {
     border: none;
 }
 .navbar-default .navbar-brand {
-    color: white;
+    color: @black;
 }
 .navbar-default .navbar-brand:hover {
-    color: white;
+    color: @black;
 }
 
 .navbar-default .navbar-nav {
-    color: white;
+    color: @black;
     li a {
-        color: white;
+        color: @black;
     }
     li a:hover {
-        color: white;
+        color: @black;
     }
 }
 
@@ -177,6 +177,7 @@ button:focus {
     .container {
         background-color: @navy2;
     }
+    color: ghostwhite;
     background-color: @navy2;
     padding-top: 40px;
     padding-bottom: 38px;
@@ -208,7 +209,8 @@ button:focus {
     h2 {
         font-size: 32px;
         font-weight: 300;
-        margin-top: 50px;
+        margin-top: 0px;
+        margin-bottom: 30px;
     }
     h3 {
         font-size: 28px;
@@ -235,4 +237,111 @@ a.temp {
     font-size: 20px;
     text-decoration: none;
 
+}
+
+
+
+
+.form-style-8{
+    font-family: 'Open Sans', sans-serif;
+    max-width: 500px;
+    padding: 30px;
+    //background: #FFFFFF;
+    margin: 50px auto;
+    box-shadow: 0px 0px 15px rgba(0, 0, 0, 0.22);
+    -moz-box-shadow: 0px 0px 15px rgba(0, 0, 0, 0.22);
+    -webkit-box-shadow:  0px 0px 15px rgba(0, 0, 0, 0.22);
+    // Placeholder text color
+    @placeholder-color: @dark2;
+    ::-webkit-input-placeholder { /* WebKit, Blink, Edge */
+        color: @placeholder-color;
+    }
+    :-moz-placeholder { /* Mozilla Firefox 4 to 18 */
+       color: @placeholder-color;
+       opacity: 1;
+    }
+    ::-moz-placeholder { /* Mozilla Firefox 19+ */
+       color: @placeholder-color;
+       opacity: 1;
+    }
+    :-ms-input-placeholder { /* Internet Explorer 10-11 */
+       color: @placeholder-color;
+    }
+}
+.form-style-8 h2{
+    background: @teal2;
+    font-family: 'Open Sans', sans-serif;
+    color: white;
+    font-size: 23px;
+    font-weight: 300;
+    padding: 20px;
+    margin: -30px -30px 10px -30px;
+}
+.form-style-8 h3{
+    background: @teal2;
+    font-family: 'Open Sans', sans-serif;
+    color: white;
+    font-size: 23px;
+    font-weight: 300;
+    padding: 20px;
+    margin: 30px -30px 10px -30px;
+}
+.form-style-8 input[type="text"],
+.form-style-8 input[type="date"],
+.form-style-8 input[type="datetime"],
+.form-style-8 input[type="email"],
+.form-style-8 input[type="number"],
+.form-style-8 input[type="search"],
+.form-style-8 input[type="time"],
+.form-style-8 input[type="url"],
+.form-style-8 input[type="password"],
+.form-style-8 textarea,
+.form-style-8 select
+{
+    box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    outline: none;
+    display: block;
+    width: 100%;
+    padding: 7px;
+    border: none;
+    border-bottom: 1px solid @dark4;
+    background: transparent;
+    margin-bottom: 10px;
+    font-family: "Inconsolata", sans-serif;
+    font-size: 20px;
+    height: 45px;
+}
+.form-style-8 textarea{
+    resize:none;
+    overflow: hidden;
+}
+.form-style-8 input[type="button"],
+.form-style-8 input[type="submit"]{
+    -moz-box-shadow: inset 0px 1px 0px 0px #45D6D6;
+    -webkit-box-shadow: inset 0px 1px 0px 0px #45D6D6;
+    box-shadow: inset 0px 1px 0px 0px #45D6D6;
+    background-color: #2CBBBB;
+    border: 1px solid #27A0A0;
+    display: inline-block;
+    cursor: pointer;
+    color: #FFFFFF;
+    font-family: 'Open Sans', sans-serif;
+    font-size: 14px;
+    padding: 8px 18px;
+    text-decoration: none;
+    text-transform: uppercase;
+}
+.form-style-8 input[type="button"]:hover,
+.form-style-8 input[type="submit"]:hover {
+    background:linear-gradient(to bottom, #34CACA 5%, #30C9C9 100%);
+    background-color:#34CACA;
+}
+
+
+.inconsolata {
+    font-family: 'Inconsolata', ;
+    font-size: 20px;
+    font-weight: 700;
 }

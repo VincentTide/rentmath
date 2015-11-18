@@ -17,87 +17,50 @@
     <div class="container">
 
 
-        <div class="article-well">
+        <div>
 
 
-            <div class="vertical-form">
-                <form role="form" action="" method="POST" class="form-horizontal">
+            <div class="form-style-8">
+                <form role="form" action="{{ url_for('rental') }}" method="POST" >
                     {{ form.hidden_tag() }}
-                    <div class="form-group">
-                        <label for="property_name">Property Name</label>
-                        <input id="property_name" name="property_name" type="text" placeholder="Property Name" class="form-control input-lg">
-                    </div>
-                    <div class="form-group">
-                        <label for="purchase_price">Purchase Price</label>
-                        <input id="purchase_price" name="purchase_price" type="text" placeholder="Purchase Price" class="form-control input-lg">
-                    </div>
-                    <div class="form-group">
-                        <label for="closing_cost">Closing Cost</label>
-                        <input id="closing_cost" name="closing_cost" type="text" placeholder="Closing Cost" class="form-control input-lg">
-                    </div>
-                    <div class="form-group">
-                        <label for="repair_cost">Repair Cost</label>
-                        <input id="repair_cost" name="repair_cost" type="text" placeholder="Repair Cost" class="form-control input-lg">
-                    </div>
-                    <div class="form-group">
-                        <label for="down_payment_percent">Down Payment %</label>
-                        <input id="down_payment_percent" name="down_payment_percent" type="text" placeholder="" class="form-control input-lg">
-                    </div>
-                    <div class="form-group">
-                        <label for="loan_interest_rate_percent">Loan Interest %</label>
-                        <input id="loan_interest_rate_percent" name="loan_interest_rate_percent" type="text" placeholder="" class="form-control input-lg">
-                    </div>
-                    <div class="form-group">
-                        <label for="loan_period_years">Loan Period in Years</label>
-                        <input id="loan_period_years" name="loan_period_years" type="text" placeholder="" class="form-control input-lg">
-                    </div>
-                    <div class="form-group">
-                        <label for="units_in_property">Number of units in property</label>
-                        <input id="units_in_property" name="units_in_property" type="text" placeholder="" class="form-control input-lg">
-                    </div>
-                    <div class="form-group">
-                        <label for="rental_income_monthly">Total Rental Income Monthly</label>
-                        <input id="rental_income_monthly" name="rental_income_monthly" type="text" placeholder="" class="form-control input-lg">
-                    </div>
-                    <div class="form-group">
-                        <label for="property_tax_annual">Property Tax Annual</label>
-                        <input id="property_tax_annual" name="property_tax_annual" type="text" placeholder="" class="form-control input-lg">
-                    </div>
-                    <div class="form-group">
-                        <label for="hazard_insurance_annual">Hazard Insurance Annual</label>
-                        <input id="hazard_insurance_annual" name="hazard_insurance_annual" type="text" placeholder="" class="form-control input-lg">
-                    </div>
-                    <div class="form-group">
-                        <label for="flood_insurance_annual">Flood Insurance Annual</label>
-                        <input id="flood_insurance_annual" name="flood_insurance_annual" type="text" placeholder="" class="form-control input-lg">
-                    </div>
-                    <div class="form-group">
-                        <label for="utilities_monthly_percent">Landlord Utilities (% of rental income)</label>
-                        <input id="utilities_monthly_percent" name="utilities_monthly_percent" type="text" placeholder="" class="form-control input-lg">
-                    </div>
-                    <div class="form-group">
-                        <label for="vacancy_monthly_percent">Vacancy (% of rental income)</label>
-                        <input id="vacancy_monthly_percent" name="vacancy_monthly_percent" type="text" placeholder="" class="form-control input-lg">
-                    </div>
-                    <div class="form-group">
-                        <label for="repairs_monthly_percent">Repairs (% of rental income)</label>
-                        <input id="repairs_monthly_percent" name="repairs_monthly_percent" type="text" placeholder="" class="form-control input-lg">
-                    </div>
-                    <div class="form-group">
-                        <label for="capex_monthly_percent">Capital Expenditure (% of rental income)</label>
-                        <input id="capex_monthly_percent" name="capex_monthly_percent" type="text" placeholder="" class="form-control input-lg">
-                    </div>
-                    <div class="form-group">
-                        <label for="manager_monthly_percent">Property Management Fee (% of rental income)</label>
-                        <input id="manager_monthly_percent" name="manager_monthly_percent" type="text" placeholder="" class="form-control input-lg">
-                    </div>
-                    <div class="form-group">
-                        <label for="hoa_monthly">HOA Fee Monthly</label>
-                        <input id="hoa_monthly" name="hoa_monthly" type="text" placeholder="" class="form-control input-lg">
-                    </div>
-                    <div class="form-group">
-                        <label for="misc_monthly">Misc Expenses $</label>
-                        <input id="misc_monthly" name="misc_monthly" type="text" placeholder="" class="form-control input-lg">
+                    <h2>Property Details</h2>
+                    <input type="text" name="property_name" placeholder="Property Name" />
+                    <input type="number" name="purchase_price" placeholder="Purchase Price" min="0" step="any"/>
+                    <input type="number" name="closing_cost" placeholder="Closing Cost" min="0" step="any"/>
+                    <input type="number" name="repair_cost" placeholder="Repair Cost" min="0" step="any"/>
+                    <input type="number" name="units_in_property" placeholder="Number of Units in Property" min="0"/>
+
+                    <h3>Loan Terms</h3>
+                    <input type="number" name="down_payment_percent" placeholder="Down Payment %" min="0" step="any"/>
+                    <input type="number" name="loan_interest_rate_percent" placeholder="Loan Interest Rate %" min="0" step="any"/>
+                    <input type="number" name="loan_period_years" placeholder="Loan Years" min="0"/>
+
+                    <h3>Income ($ monthly)</h3>
+                    <input type="number" name="rental_income_monthly" placeholder="Rental Income" min="0" step="any"/>
+                    <input type="number" name="misc_income_monthly" placeholder="Misc Income (Parking, Laundry)" min="0" step="any"/>
+
+                    <h3>Property Tax and Insurance ($ yearly)</h3>
+                    <input type="number" name="property_tax_annual" placeholder="Property Tax" min="0" step="any"/>
+                    <input type="number" name="hazard_insurance_annual" placeholder="Hazard Insurance" min="0" step="any"/>
+                    <input type="number" name="flood_insurance_annual" placeholder="Flood Insurance" min="0" step="any"/>
+
+                    <h3>Monthly Expenses (% of rental income)</h3>
+                    <input type="number" name="utilities_monthly_percent" placeholder="Utilities" min="0" step="any"/>
+                    <input type="number" name="vacancy_monthly_percent" placeholder="Vacancy" min="0" step="any"/>
+                    <input type="number" name="repairs_monthly_percent" placeholder="Repairs & Maintenance" min="0" step="any"/>
+                    <input type="number" name="capex_monthly_percent" placeholder="CapEx" min="0" step="any"/>
+                    <input type="number" name="manager_monthly_percent" placeholder="Property Management" min="0" step="any"/>
+
+                    <h3>Other Expenses ($ monthly)</h3>
+                    <input type="number" name="hoa_monthly" placeholder="HOA Fees" min="0" step="any"/>
+                    <input type="number" name="misc_expense_monthly" placeholder="Misc Expenses" min="0" step="any"/>
+
+
+
+                    <br>
+                    <br>
+                    <div class="form-group" style="text-align:center;">
+                        <button type="submit" class="btn btn-success btn-lg">Calculate</button>
                     </div>
 
 
@@ -106,9 +69,8 @@
 
 
 
-                    <div class="form-group">
-                        <button type="submit" class="btn btn-info btn-lg btn-block">Calculate</button>
-                    </div>
+
+
 
 
 
