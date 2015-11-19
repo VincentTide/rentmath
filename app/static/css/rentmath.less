@@ -267,8 +267,32 @@ a.temp {
     :-ms-input-placeholder { /* Internet Explorer 10-11 */
        color: @placeholder-color;
     }
+    a, a:hover {
+        text-decoration: none;
+    }
+    p {
+        font-size: 15px;
+    }
 }
-.form-style-8 h2{
+//.form-style-8 h2{
+//    background: @teal2;
+//    font-family: 'Open Sans', sans-serif;
+//    color: white;
+//    font-size: 23px;
+//    font-weight: 300;
+//    padding: 20px;
+//    margin: -30px -30px 10px -30px;
+//}
+//.form-style-8 h3{
+//    background: @teal2;
+//    font-family: 'Open Sans', sans-serif;
+//    color: white;
+//    font-size: 23px;
+//    font-weight: 300;
+//    padding: 20px;
+//    margin: 30px -30px 10px -30px;
+//}
+.form-style-8 .expand-bar{
     background: @teal2;
     font-family: 'Open Sans', sans-serif;
     color: white;
@@ -276,8 +300,13 @@ a.temp {
     font-weight: 300;
     padding: 20px;
     margin: -30px -30px 10px -30px;
+    .plus-right {
+        float: right;
+        font-size: 40px;
+        margin-top: -12px;
+    }
 }
-.form-style-8 h3{
+.form-style-8 .expand-bar-2{
     background: @teal2;
     font-family: 'Open Sans', sans-serif;
     color: white;
@@ -285,6 +314,11 @@ a.temp {
     font-weight: 300;
     padding: 20px;
     margin: 30px -30px 10px -30px;
+    .plus-right {
+        float: right;
+        font-size: 40px;
+        margin-top: -12px;
+    }
 }
 .form-style-8 input[type="text"],
 .form-style-8 input[type="date"],

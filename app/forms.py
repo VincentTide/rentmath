@@ -11,7 +11,7 @@ class RentalIncomeCalculatorForm(Form):
     down_payment_percent = FloatField()
     loan_interest_rate_percent = FloatField()
     loan_period_years = IntegerField()
-    units_in_property = IntegerField()  # default 1 for single family house
+    property_units = IntegerField()  # default 1 for single family house
     rental_income_monthly = FloatField()  # total rental income
     misc_income_monthly = FloatField()
     property_tax_annual = FloatField()

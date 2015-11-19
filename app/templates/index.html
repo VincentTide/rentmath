@@ -23,36 +23,118 @@
             <div class="form-style-8">
                 <form role="form" action="{{ url_for('rental') }}" method="POST" >
                     {{ form.hidden_tag() }}
-                    <h2>Property Details</h2>
+
+                    <a role="button" data-toggle="collapse" href="#collapse-property" aria-expanded="false" aria-controls="collapse-property">
+                        <div class="expand-bar">
+                            <span>Property Details</span>
+                            <span class="plus-right">+</span>
+                        </div>
+                    </a>
+                    <div class="collapse" id="collapse-property">
+                      <div>
+                          <p><strong>Property Name:</strong> Enter a name or address for this property report.</p>
+                          <p><strong>Purchase Price:</strong> The sales price of the property.</p>
+                          <p><strong>Closing Cost:</strong> The fees involved in a real estate transaction including lender fees, agent commissions, and other fees.</p>
+                          <p><strong>Repair Cost:</strong> The cost of any renovations needed for the property.</p>
+                          <p><strong>Property Units:</strong> For multi-unit properties, enter in the total number of units.</p>
+                      </div>
+                    </div>
                     <input type="text" name="property_name" placeholder="Property Name" />
                     <input type="number" name="purchase_price" placeholder="Purchase Price" min="0" step="any"/>
                     <input type="number" name="closing_cost" placeholder="Closing Cost" min="0" step="any"/>
                     <input type="number" name="repair_cost" placeholder="Repair Cost" min="0" step="any"/>
-                    <input type="number" name="units_in_property" placeholder="Number of Units in Property" min="0"/>
+                    <input type="number" name="property_units" placeholder="Property Units" min="0"/>
 
-                    <h3>Loan Terms</h3>
+
+                    <a role="button" data-toggle="collapse" href="#collapse-loan" aria-expanded="false" aria-controls="collapse-loan">
+                        <div class="expand-bar-2">
+                            <span>Loan Terms</span>
+                            <span class="plus-right">+</span>
+                        </div>
+                    </a>
+                    <div class="collapse" id="collapse-loan">
+                      <div>
+                          <p><strong>Down Payment %:</strong> The down payment as a percentage of the purchase price.</p>
+                          <p><strong>Loan Interest Rate %:</strong> The mortgage interest rate.</p>
+                          <p><strong>Loan Years:</strong> The length of the mortgage in years.</p>
+                      </div>
+                    </div>
                     <input type="number" name="down_payment_percent" placeholder="Down Payment %" min="0" step="any"/>
                     <input type="number" name="loan_interest_rate_percent" placeholder="Loan Interest Rate %" min="0" step="any"/>
                     <input type="number" name="loan_period_years" placeholder="Loan Years" min="0"/>
 
-                    <h3>Income ($ monthly)</h3>
+
+                    <a role="button" data-toggle="collapse" href="#collapse-income" aria-expanded="false" aria-controls="collapse-income">
+                        <div class="expand-bar-2">
+                            <span>Income ($ monthly)</span>
+                            <span class="plus-right">+</span>
+                        </div>
+                    </a>
+                    <div class="collapse" id="collapse-income">
+                      <div>
+                          <p><strong>Rental Income:</strong> The total rental income for the property.</p>
+                          <p><strong>Misc Income:</strong> Any extra income other than the rental income such as parking spaces and laundry.</p>
+                      </div>
+                    </div>
                     <input type="number" name="rental_income_monthly" placeholder="Rental Income" min="0" step="any"/>
                     <input type="number" name="misc_income_monthly" placeholder="Misc Income (Parking, Laundry)" min="0" step="any"/>
 
-                    <h3>Property Tax and Insurance ($ yearly)</h3>
+
+                    <a role="button" data-toggle="collapse" href="#collapse-tax" aria-expanded="false" aria-controls="collapse-tax">
+                        <div class="expand-bar-2">
+                            <span>Property Tax and Insurance ($ yearly)</span>
+                            <span class="plus-right">+</span>
+                        </div>
+                    </a>
+                    <div class="collapse" id="collapse-tax">
+                      <div>
+                          <p><strong>Property Tax:</strong> The yearly property tax.</p>
+                          <p><strong>Hazard Insurance:</strong> Standard homeowner's insurance as a yearly cost that will be required by the lender to protect against natural events.</p>
+                          <p><strong>Flood Insurance:</strong> The yearly cost of flood insurance policy. Properties in a designated flood zone may be required to carry flood insurance by the lender.</p>
+                      </div>
+                    </div>
                     <input type="number" name="property_tax_annual" placeholder="Property Tax" min="0" step="any"/>
                     <input type="number" name="hazard_insurance_annual" placeholder="Hazard Insurance" min="0" step="any"/>
                     <input type="number" name="flood_insurance_annual" placeholder="Flood Insurance" min="0" step="any"/>
 
-                    <h3>Monthly Expenses (% of rental income)</h3>
-                    <input type="number" name="utilities_monthly_percent" placeholder="Utilities" min="0" step="any"/>
+
+                    <a role="button" data-toggle="collapse" href="#collapse-expenses" aria-expanded="false" aria-controls="collapse-expenses">
+                        <div class="expand-bar-2">
+                            <span>Monthly Expenses (% of rental income)</span>
+                            <span class="plus-right">+</span>
+                        </div>
+                    </a>
+                    <div class="collapse" id="collapse-expenses">
+                      <div>
+                          <p>Monthly expenses are calculated as a percentage (%) of the total rental income. For example with a $1000 rental income, entering in 5 will be an expense of $50.</p>
+                          <p><strong>Utilities:</strong> Any utilities that will be paid by the landlord such as water, electricity, gas or oil.</p>
+                          <p><strong>Vacancy:</strong> The estimated expense of loss rental income due to vacancy.</p>
+                          <p><strong>Repairs & Maintenance:</strong> Smaller repairs needed to keep a property functioning and habitable. The IRS allows maintenance items to be depreciated all in the same year. Examples: Repairing broken fridge or patching leaky roof.</p>
+                          <p><strong>CapEx:</strong> CapEx or Capital Expenditures are larger items that increases the value of the property or extends its life. The IRS requires CapEx to be depreciated over the useful lifetime of the item over multiple years. Examples: Replacing a new fridge or replacing an entire roof.</p>
+                          <p><strong>Property Management:</strong> The cost of managing a property and handling tenants.</p>
+                      </div>
+                    </div>
+                    <input type="number" name="utilities_monthly_percent" placeholder="Utilities (5%)" min="0" step="any"/>
                     <input type="number" name="vacancy_monthly_percent" placeholder="Vacancy" min="0" step="any"/>
                     <input type="number" name="repairs_monthly_percent" placeholder="Repairs & Maintenance" min="0" step="any"/>
                     <input type="number" name="capex_monthly_percent" placeholder="CapEx" min="0" step="any"/>
                     <input type="number" name="manager_monthly_percent" placeholder="Property Management" min="0" step="any"/>
 
-                    <h3>Other Expenses ($ monthly)</h3>
-                    <input type="number" name="hoa_monthly" placeholder="HOA Fees" min="0" step="any"/>
+
+                    <a role="button" data-toggle="collapse" href="#collapse-other" aria-expanded="false" aria-controls="collapse-other">
+                        <div class="expand-bar-2">
+                            <span>Other expenses ($ monthly)</span>
+                            <span class="plus-right">+</span>
+                        </div>
+                    </a>
+                    <div class="collapse" id="collapse-other">
+                      <div>
+                          <p>These fees are a flat dollar amount instead of a percentage of rental income.</p>
+                          <p><strong>HOA Fees:</strong> Homeowner's Association Fees that are required by certain types of property such as condominiums.</p>
+                          <p><strong>Misc Expenses:</strong> Any other expenses involved with the rental property.</p>
+                      </div>
+                    </div>
+                    <input type="number" name="hoa_monthly" placeholder="HOA Fees ($250)" min="0" step="any"/>
                     <input type="number" name="misc_expense_monthly" placeholder="Misc Expenses" min="0" step="any"/>
 
 
