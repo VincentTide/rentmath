@@ -2,6 +2,8 @@ from app import app
 from flask import request, render_template, redirect, url_for, flash, abort, make_response, session, send_from_directory
 from forms import RentalIncomeCalculatorForm
 from rentmath import *
+import json
+import base64
 
 
 @app.errorhandler(404)
@@ -19,6 +21,17 @@ def index():
 def rental():
     form = RentalIncomeCalculatorForm()
     pass
+
+
+# @app.route('/rental/<string:token>', methods=['GET'])
+# def rental_token(token):
+#     form = RentalIncomeCalculatorForm()
+#     print token
+#     decoded = base64.urlsafe_b64decode(str(token))
+#     data = json.loads(decoded)
+#     result = rental_main(data)
+#     return render_template('rental-calculator.html', result=result)
+
 
 
 @app.route('/rental', methods=['POST'])
@@ -49,12 +62,22 @@ def rental_post():
         }
         result = rental_main(data)
 
+        # Create a base64 encoded string of the data
+        # dump = json.dumps(data)
+        # encoded = base64.urlsafe_b64encode(dump)
+        # return redirect(url_for('rental_token', token=encoded))
+
+
+        # Create query string
+        # qs = '/rental?'
+        # for key, value in data.iteritems():
+        #     qs += "{0}={1}&".format(key, value)
+        # qs = qs[:-1]
+
+
+
         return render_template('rental-calculator.html', result=result)
     return redirect(url_for('index', form=form))
-
-
-
-
 
 
 
