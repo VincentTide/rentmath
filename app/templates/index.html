@@ -19,6 +19,10 @@
 
         <div>
 
+{% for field_name, field_errors in form.errors.items() %}
+         {{ field_errors }}
+{% endfor %}
+
 
             <div class="form-style-8">
                 <form role="form" action="{{ url_for('rental') }}" method="POST" >
@@ -39,7 +43,7 @@
                           <p><strong>Property Units:</strong> For multi-unit properties, enter in the total number of units.</p>
                       </div>
                     </div>
-                    <input type="text" name="property_name" placeholder="Property Name" />
+                    <input type="text" name="property_name" id="property_name" placeholder="Property Name" />
                     <input type="number" name="purchase_price" placeholder="Purchase Price" min="0" step="any"/>
                     <input type="number" name="closing_cost" placeholder="Closing Cost" min="0" step="any"/>
                     <input type="number" name="repair_cost" placeholder="Repair Cost" min="0" step="any"/>
@@ -60,8 +64,8 @@
                       </div>
                     </div>
                     <input type="number" name="down_payment_percent" placeholder="Down Payment %" min="0" step="any"/>
-                    <input type="number" name="loan_interest_rate_percent" placeholder="Loan Interest Rate %" min="0" step="any"/>
-                    <input type="number" name="loan_period_years" placeholder="Loan Years" min="0"/>
+                    <input type="number" name="interest_rate" placeholder="Loan Interest Rate %" min="0" step="any"/>
+                    <input type="number" name="loan_years" placeholder="Loan Years" min="0"/>
 
 
                     <a role="button" data-toggle="collapse" href="#collapse-income" aria-expanded="false" aria-controls="collapse-income">
@@ -76,8 +80,8 @@
                           <p><strong>Misc Income:</strong> Any extra income other than the rental income such as parking spaces and laundry.</p>
                       </div>
                     </div>
-                    <input type="number" name="rental_income_monthly" placeholder="Rental Income" min="0" step="any"/>
-                    <input type="number" name="misc_income_monthly" placeholder="Misc Income (Parking, Laundry)" min="0" step="any"/>
+                    <input type="number" name="rental_income" placeholder="Rental Income" min="0" step="any"/>
+                    <input type="number" name="misc_income" placeholder="Misc Income (Parking, Laundry)" min="0" step="any"/>
 
 
                     <a role="button" data-toggle="collapse" href="#collapse-tax" aria-expanded="false" aria-controls="collapse-tax">
@@ -114,11 +118,11 @@
                           <p><strong>Property Management:</strong> The cost of managing a property and handling tenants.</p>
                       </div>
                     </div>
-                    <input type="number" name="utilities_monthly_percent" placeholder="Utilities (5%)" min="0" step="any"/>
-                    <input type="number" name="vacancy_monthly_percent" placeholder="Vacancy" min="0" step="any"/>
-                    <input type="number" name="repairs_monthly_percent" placeholder="Repairs & Maintenance" min="0" step="any"/>
-                    <input type="number" name="capex_monthly_percent" placeholder="CapEx" min="0" step="any"/>
-                    <input type="number" name="manager_monthly_percent" placeholder="Property Management" min="0" step="any"/>
+                    <input type="number" name="utilities_percent" placeholder="Utilities (5%)" min="0" step="any"/>
+                    <input type="number" name="vacancy_percent" placeholder="Vacancy" min="0" step="any"/>
+                    <input type="number" name="repairs_percent" placeholder="Repairs & Maintenance" min="0" step="any"/>
+                    <input type="number" name="capex_percent" placeholder="CapEx" min="0" step="any"/>
+                    <input type="number" name="manager_percent" placeholder="Property Management" min="0" step="any"/>
 
 
                     <a role="button" data-toggle="collapse" href="#collapse-other" aria-expanded="false" aria-controls="collapse-other">

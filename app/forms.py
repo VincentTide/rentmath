@@ -1,27 +1,27 @@
 from flask.ext.wtf import Form
 from wtforms import StringField, PasswordField, BooleanField, SubmitField, FloatField, IntegerField
-from wtforms.validators import DataRequired
+from wtforms.validators import DataRequired, Optional
 
 
 class RentalIncomeCalculatorForm(Form):
-    property_name = StringField()
+    property_name = StringField(validators=[Optional()])
     purchase_price = IntegerField(validators=[DataRequired()])
-    closing_cost = IntegerField()
-    repair_cost = IntegerField()
+    closing_cost = IntegerField(validators=[Optional()])
+    repair_cost = IntegerField(validators=[Optional()])
     down_payment_percent = FloatField()
-    loan_interest_rate_percent = FloatField()
-    loan_period_years = IntegerField()
-    property_units = IntegerField()  # default 1 for single family house
-    rental_income_monthly = FloatField()  # total rental income
-    misc_income_monthly = FloatField()
-    property_tax_annual = FloatField()
-    hazard_insurance_annual = FloatField()
-    flood_insurance_annual = FloatField()
-    utilities_monthly_percent = FloatField()
-    vacancy_monthly_percent = FloatField()
-    repairs_monthly_percent = FloatField()
-    capex_monthly_percent = FloatField()
-    manager_monthly_percent = FloatField()
-    hoa_monthly = FloatField()
-    misc_expense_monthly = FloatField()
+    interest_rate = FloatField()
+    loan_years = IntegerField()
+    property_units = IntegerField(validators=[Optional()])
+    rental_income = FloatField()
+    misc_income = FloatField(validators=[Optional()])
+    property_tax_annual = FloatField(validators=[Optional()])
+    hazard_insurance_annual = FloatField(validators=[Optional()])
+    flood_insurance_annual = FloatField(validators=[Optional()])
+    utilities_percent = FloatField(validators=[Optional()])
+    vacancy_percent = FloatField(validators=[Optional()])
+    repairs_percent = FloatField(validators=[Optional()])
+    capex_percent = FloatField(validators=[Optional()])
+    manager_percent = FloatField(validators=[Optional()])
+    hoa_monthly = FloatField(validators=[Optional()])
+    misc_expense_monthly = FloatField(validators=[Optional()])
     submit = SubmitField('Submit')

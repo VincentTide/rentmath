@@ -19,16 +19,16 @@ def rental_main(data):
     dollars['repair_cost'] = data['repair_cost']
     dollars['project_cost'] = dollars['purchase_price'] + dollars['closing_cost'] + dollars['repair_cost']
 
-    decs['down_payment_percent'] = data['down_payment_percent']
-    decs['down_payment_amount'] = dollars['purchase_price'] * (decs['down_payment_percent'] / 100.0)
+    decs['down_payment'] = data['down_payment']
+    decs['down_payment_amount'] = dollars['purchase_price'] * (decs['down_payment'] / 100.0)
     decs['loan_amount'] = dollars['purchase_price'] - decs['down_payment_amount']
 
     # Loan monthly payment formula
     # Taken from https://en.wikipedia.org/wiki/Mortgage_calculator#Monthly_payment_formula
     # r = the monthly interest rate, expressed as a decimal, not a percentage
-    r = (data['loan_interest_rate_percent'] / 12.0) / 100.0
+    r = (data['interest_rate'] / 12.0) / 100.0
     # N = the number of monthly payments, the loan period in months
-    N = data['loan_period_years'] * 12
+    N = data['loan_years'] * 12
     # P = the amount borrowed, known as the loan's principal
     P = decs['loan_amount']
     decs['loan_payment'] = (r*P * pow(1+r, N)) / (pow(1+r, N) - 1)
@@ -36,8 +36,8 @@ def rental_main(data):
     decs['cash_needed'] = decs['down_payment_amount'] + dollars['closing_cost'] + dollars['repair_cost']
 
     # We need to truncate to 2 precision
-    decs['rental_income'] = round_float_2(data['rental_income_monthly'])
-    decs['misc_income'] = round_float_2(data['misc_income_monthly'])
+    decs['rental_income'] = round_float_2(data['rental_income'])
+    decs['misc_income'] = round_float_2(data['misc_income'])
     decs['total_income'] = decs['rental_income'] + decs['misc_income']
     decs['total_income'] = float(decs['total_income'])
 
@@ -45,11 +45,11 @@ def rental_main(data):
     decs['property_tax'] = data['property_tax_annual'] / 12.0
     decs['hazard_insurance'] = data['hazard_insurance_annual'] / 12.0
     decs['flood_insurance'] = data['flood_insurance_annual'] / 12.0
-    decs['utilities'] = decs['total_income'] * (data['utilities_monthly_percent'] / 100.0)
-    decs['vacancy'] = decs['total_income'] * (data['vacancy_monthly_percent'] / 100.0)
-    decs['repairs'] = decs['total_income'] * (data['repairs_monthly_percent'] / 100.0)
-    decs['capex'] = decs['total_income'] * (data['capex_monthly_percent'] / 100.0)
-    decs['management'] = decs['total_income'] * (data['management_monthly_percent'] / 100.0)
+    decs['utilities'] = decs['total_income'] * (data['utilities_percent'] / 100.0)
+    decs['vacancy'] = decs['total_income'] * (data['vacancy_percent'] / 100.0)
+    decs['repairs'] = decs['total_income'] * (data['repairs_percent'] / 100.0)
+    decs['capex'] = decs['total_income'] * (data['capex_percent'] / 100.0)
+    decs['management'] = decs['total_income'] * (data['management_percent'] / 100.0)
     decs['hoa'] = data['hoa']
     decs['misc_expense'] = data['misc_expense']
 
@@ -101,18 +101,21 @@ def rental_main(data):
 
     # add thousand separator
     for key, value in dollars.iteritems():
-        dollars[key] = "{:,d}".format(value)
+        if value == 0:
+            dollars[key] = '-'
+        else:
+            dollars[key] = "{:,d}".format(value)
 
     # add any other vars we want to return
     result = {
         'property_name' : data['property_name'],
-        'loan_interest_rate_percent': data['loan_interest_rate_percent'],
-        'loan_period_years': data['loan_period_years'],
-        'utilities_percent': data['utilities_monthly_percent'],
-        'vacancy_percent': data['vacancy_monthly_percent'],
-        'repairs_percent': data['repairs_monthly_percent'],
-        'capex_percent': data['capex_monthly_percent'],
-        'management_percent': data['management_monthly_percent'],
+        'interest_rate': data['interest_rate'],
+        'loan_years': data['loan_years'],
+        'utilities_percent': data['utilities_percent'],
+        'vacancy_percent': data['vacancy_percent'],
+        'repairs_percent': data['repairs_percent'],
+        'capex_percent': data['capex_percent'],
+        'management_percent': data['management_percent'],
         'property_units': data['property_units'],
     }
     result.update(percents)
@@ -127,20 +130,20 @@ if __name__ == '__main__':
         'purchase_price': 200000,
         'closing_cost': 5000,
         'repair_cost': 15000,
-        'down_payment_percent': 20,
-        'loan_interest_rate_percent': 4.5,
-        'loan_period_years': 30,
+        'down_payment': 20,
+        'interest_rate': 4.5,
+        'loan_years': 30,
         'property_units': 2,
-        'rental_income_monthly': 2000,
-        'misc_income_monthly': 0,
+        'rental_income': 2000,
+        'misc_income': 0,
         'property_tax_annual': 5000,
         'hazard_insurance_annual': 1200,
         'flood_insurance_annual': 0,
-        'utilities_monthly_percent': 0,
-        'vacancy_monthly_percent': 8,
-        'repairs_monthly_percent': 8,
-        'capex_monthly_percent': 8,
-        'management_monthly_percent': 8,
+        'utilities_percent': 0,
+        'vacancy_percent': 8,
+        'repairs_percent': 8,
+        'capex_percent': 8,
+        'management_percent': 8,
         'hoa': 0,
         'misc_expense': 0,
     }
