@@ -22,7 +22,7 @@
 
             <h2>{{ result.property_name }}</h2>
 
-            <table class="table table-striped" style="max-width:500px;">
+            <table class="table table-striped table-condensed table-hover rent-table">
                 <thead>
                 <tr>
                     <th>Property Details</th>
@@ -49,7 +49,7 @@
             </table>
 
 
-            <table class="table table-striped" style="max-width:500px;">
+            <table class="table table-striped table-condensed table-hover rent-table">
                 <thead>
                 <tr>
                     <th>Down Payment</th>
@@ -68,12 +68,11 @@
                     <td>Total Cash Needed</td>
                     <td class="inconsolata text-right">{{ result.cash_needed }}</td>
                 </tr>
-
                 </tbody>
             </table>
 
 
-            <table class="table table-striped" style="max-width:500px;">
+            <table class="table table-striped table-condensed table-hover rent-table">
                 <thead>
                 <tr>
                     <th>Loan Terms</th>
@@ -96,7 +95,30 @@
             </table>
 
 
-            <table class="table table-striped" style="max-width:500px;">
+            <table class="table table-striped table-condensed table-hover rent-table">
+                <thead>
+                <tr>
+                    <th>Income</th>
+                </tr>
+                </thead>
+                <tbody>
+                <tr>
+                    <td>Rental Income</td>
+                    <td class="inconsolata text-right">{{ result.rental_income }}</td>
+                </tr>
+                <tr>
+                    <td>Misc Income</td>
+                    <td class="inconsolata text-right">{{ result.misc_income }}</td>
+                </tr>
+                <tr>
+                    <td>Total Income</td>
+                    <td class="inconsolata-bold text-right">{{ result.total_income }}</td>
+                </tr>
+                </tbody>
+            </table>
+
+
+            <table class="table table-striped table-condensed table-hover rent-table">
                 <thead>
                 <tr>
                     <th>Expenses</th>
@@ -112,12 +134,8 @@
                     <td class="inconsolata text-right">{{ result.property_tax }}</td>
                 </tr>
                 <tr>
-                    <td>Hazard Insurance</td>
-                    <td class="inconsolata text-right">{{ result.hazard_insurance }}</td>
-                </tr>
-                <tr>
-                    <td>Flood Insurance</td>
-                    <td class="inconsolata text-right">{{ result.flood_insurance }}</td>
+                    <td>Insurance</td>
+                    <td class="inconsolata text-right">{{ result.insurance }}</td>
                 </tr>
                 <tr>
                     <td>Utilities ({{ result.utilities_percent }}%)</td>
@@ -149,38 +167,13 @@
                 </tr>
                 <tr>
                     <td>Total Expenses</td>
-                    <td class="inconsolata text-right">{{ result.expenses_total }}</td>
+                    <td class="inconsolata-bold text-right">{{ result.expenses_total }}</td>
                 </tr>
-
                 </tbody>
             </table>
 
 
-            <table class="table table-striped" style="max-width:500px;">
-                <thead>
-                <tr>
-                    <th>Income</th>
-                </tr>
-                </thead>
-                <tbody>
-                <tr>
-                    <td>Rental Income</td>
-                    <td class="inconsolata text-right">{{ result.rental_income }}</td>
-                </tr>
-                <tr>
-                    <td>Misc Income</td>
-                    <td class="inconsolata text-right">{{ result.misc_income }}</td>
-                </tr>
-                <tr>
-                    <td>Total Income</td>
-                    <td class="inconsolata text-right">{{ result.total_income }}</td>
-                </tr>
-
-                </tbody>
-            </table>
-
-
-            <table class="table table-striped" style="max-width:500px;">
+            <table class="table table-striped table-condensed table-hover rent-table">
                 <thead>
                 <tr>
                     <th>Summary</th>
@@ -189,7 +182,7 @@
                 <tbody>
                 <tr>
                     <td>Cash Flow - monthly</td>
-                    <td class="inconsolata text-right">{{ result.cash_flow }}</td>
+                    <td class="inconsolata-bold text-right">{{ result.cash_flow }}</td>
                 </tr>
                 <tr>
                     <td>Cash Flow Per Unit</td>
@@ -209,6 +202,7 @@
                 </tr>
                 </tbody>
             </table>
+
 
 
         </div>

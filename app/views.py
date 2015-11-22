@@ -1,9 +1,7 @@
 from app import app
-from flask import request, render_template, redirect, url_for, flash, abort, make_response, session, send_from_directory
+from flask import request, render_template, redirect, url_for, flash, abort, make_response, session
 from forms import RentalIncomeCalculatorForm
 from rentmath import *
-import json
-import base64
 
 
 @app.errorhandler(404)
@@ -19,19 +17,38 @@ def index():
 
 @app.route('/rental', methods=['GET'])
 def rental():
-    form = RentalIncomeCalculatorForm()
-    pass
+    data = {}
+    try:
+        data['property_name'] = request.args.get('property_name')
+        data['purchase_price'] = int(request.args.get('purchase_price'))
+        data['closing_cost'] = int(request.args.get('closing_cost'))
+        data['repair_cost'] = int(request.args.get('repair_cost'))
+        data['down_payment'] = float(request.args.get('down_payment'))
+        data['interest_rate'] = float(request.args.get('interest_rate'))
+        data['loan_years'] = int(request.args.get('loan_years'))
+        data['property_units'] = int(request.args.get('property_units'))
+        data['rental_income'] = float(request.args.get('rental_income'))
+        data['misc_income'] = float(request.args.get('misc_income'))
+        data['property_tax_annual'] = float(request.args.get('property_tax_annual'))
+        data['insurance_annual'] = float(request.args.get('insurance_annual'))
+        data['utilities_percent'] = float(request.args.get('utilities_percent'))
+        data['vacancy_percent'] = float(request.args.get('vacancy_percent'))
+        data['repairs_percent'] = float(request.args.get('repairs_percent'))
+        data['capex_percent'] = float(request.args.get('capex_percent'))
+        data['management_percent'] = float(request.args.get('management_percent'))
+        data['hoa'] = float(request.args.get('hoa'))
+        data['misc_expense'] = float(request.args.get('misc_expense'))
+    except:
+        return redirect(url_for('index'))
 
+    result = rental_main(data)
 
-# @app.route('/rental/<string:token>', methods=['GET'])
-# def rental_token(token):
-#     form = RentalIncomeCalculatorForm()
-#     print token
-#     decoded = base64.urlsafe_b64decode(str(token))
-#     data = json.loads(decoded)
-#     result = rental_main(data)
-#     return render_template('rental-calculator.html', result=result)
+    qs = '/rental?'
+    for key, value in data.iteritems():
+        qs += "{0}={1}&".format(key, value)
+    qs = qs[:-1]
 
+    return render_template('rental-calculator.html', result=result, qs=qs)
 
 
 @app.route('/rental', methods=['POST'])
@@ -54,12 +71,9 @@ def rental_post():
         property_tax_annual = form.property_tax_annual.data
         if property_tax_annual == None:
             property_tax_annual = 0
-        hazard_insurance_annual = form.hazard_insurance_annual.data
-        if hazard_insurance_annual == None:
-            hazard_insurance_annual = 0
-        flood_insurance_annual = form.flood_insurance_annual.data
-        if flood_insurance_annual == None:
-            flood_insurance_annual = 0
+        insurance_annual = form.insurance_annual.data
+        if insurance_annual == None:
+            insurance_annual = 0
         utilities_percent = form.utilities_percent.data
         if utilities_percent == None:
             utilities_percent = 0
@@ -82,8 +96,6 @@ def rental_post():
         if misc_expense == None:
             misc_expense = 0
 
-
-
         data = {
             'property_name': form.property_name.data,
             'purchase_price': form.purchase_price.data,
@@ -96,8 +108,7 @@ def rental_post():
             'rental_income': form.rental_income.data,
             'misc_income': misc_income,
             'property_tax_annual': property_tax_annual,
-            'hazard_insurance_annual': hazard_insurance_annual,
-            'flood_insurance_annual': flood_insurance_annual,
+            'insurance_annual': insurance_annual,
             'utilities_percent': utilities_percent,
             'vacancy_percent': vacancy_percent,
             'repairs_percent': repairs_percent,
@@ -106,9 +117,14 @@ def rental_post():
             'hoa': hoa,
             'misc_expense': misc_expense,
         }
-        result = rental_main(data)
 
-        return render_template('rental-calculator.html', result=result)
+        # query string generation
+        qs = '/rental?'
+        for key, value in data.iteritems():
+            qs += "{0}={1}&".format(key, value)
+        qs = qs[:-1]
+
+        return redirect(qs)
     return redirect(url_for('index', form=form))
 
 

@@ -93,13 +93,11 @@
                     <div class="collapse" id="collapse-tax">
                       <div>
                           <p><strong>Property Tax:</strong> The yearly property tax.</p>
-                          <p><strong>Hazard Insurance:</strong> Standard homeowner's insurance as a yearly cost that will be required by the lender to protect against natural events.</p>
-                          <p><strong>Flood Insurance:</strong> The yearly cost of flood insurance policy. Properties in a designated flood zone may be required to carry flood insurance by the lender.</p>
+                          <p><strong>Insurance:</strong> The yearly cost of all insurance including hazard and flood insurance.</p>
                       </div>
                     </div>
                     <input type="number" name="property_tax_annual" placeholder="Property Tax" min="0" step="any"/>
-                    <input type="number" name="hazard_insurance_annual" placeholder="Hazard Insurance" min="0" step="any"/>
-                    <input type="number" name="flood_insurance_annual" placeholder="Flood Insurance" min="0" step="any"/>
+                    <input type="number" name="insurance_annual" placeholder="Insurance" min="0" step="any"/>
 
 
                     <a role="button" data-toggle="collapse" href="#collapse-expenses" aria-expanded="false" aria-controls="collapse-expenses">
@@ -115,7 +113,7 @@
                           <p><strong>Vacancy:</strong> The estimated expense of loss rental income due to vacancy.</p>
                           <p><strong>Repairs & Maintenance:</strong> Smaller repairs needed to keep a property functioning and habitable. The IRS allows maintenance items to be depreciated all in the same year. Examples: Repairing broken fridge or patching leaky roof.</p>
                           <p><strong>CapEx:</strong> CapEx or Capital Expenditures are larger items that increases the value of the property or extends its life. The IRS requires CapEx to be depreciated over the useful lifetime of the item over multiple years. Examples: Replacing a new fridge or replacing an entire roof.</p>
-                          <p><strong>Property Management:</strong> The cost of managing a property and handling tenants.</p>
+                          <p><strong>Property Management:</strong> The cost of managing a property.</p>
                       </div>
                     </div>
                     <input type="number" name="utilities_percent" placeholder="Utilities (5%)" min="0" step="any"/>

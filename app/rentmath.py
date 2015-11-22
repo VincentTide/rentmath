@@ -43,8 +43,7 @@ def rental_main(data):
 
     # Expenses other than loan
     decs['property_tax'] = data['property_tax_annual'] / 12.0
-    decs['hazard_insurance'] = data['hazard_insurance_annual'] / 12.0
-    decs['flood_insurance'] = data['flood_insurance_annual'] / 12.0
+    decs['insurance'] = data['insurance_annual'] / 12.0
     decs['utilities'] = decs['total_income'] * (data['utilities_percent'] / 100.0)
     decs['vacancy'] = decs['total_income'] * (data['vacancy_percent'] / 100.0)
     decs['repairs'] = decs['total_income'] * (data['repairs_percent'] / 100.0)
@@ -59,8 +58,7 @@ def rental_main(data):
 
     decs['expenses_total'] = decs['loan_payment'] + \
                              decs['property_tax'] + \
-                             decs['hazard_insurance'] +\
-                             decs['flood_insurance'] +\
+                             decs['insurance'] +\
                              decs['utilities'] +\
                              decs['vacancy'] +\
                              decs['repairs'] +\
@@ -69,8 +67,7 @@ def rental_main(data):
                              decs['hoa'] +\
                              decs['misc_expense']
     decs['expenses_no_mortgage'] = decs['property_tax'] + \
-                                   decs['hazard_insurance'] +\
-                                   decs['flood_insurance'] +\
+                                   decs['insurance'] +\
                                    decs['utilities'] +\
                                    decs['vacancy'] +\
                                    decs['repairs'] +\
@@ -137,8 +134,7 @@ if __name__ == '__main__':
         'rental_income': 2000,
         'misc_income': 0,
         'property_tax_annual': 5000,
-        'hazard_insurance_annual': 1200,
-        'flood_insurance_annual': 0,
+        'insurance_annual': 1200,
         'utilities_percent': 0,
         'vacancy_percent': 8,
         'repairs_percent': 8,
