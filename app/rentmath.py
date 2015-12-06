@@ -83,7 +83,11 @@ def rental_main(data):
     decs['net_operating_income'] = decs['total_income'] - decs['expenses_no_mortgage']
     # cap rate - purchase price + closing cost + repairs
     percents['cap_rate'] = (decs['net_operating_income'] * 12) / dollars['project_cost']
-    percents['cash_on_cash_return'] = (decs['cash_flow'] * 12) / decs['cash_needed']
+    # if cash_needed is zero or negative, cash on cash returns is undefined
+    if decs['cash_needed'] <= 0:
+        percents['cash_on_cash_return'] = 0
+    else:
+        percents['cash_on_cash_return'] = (decs['cash_flow'] * 12) / decs['cash_needed']
 
     # Round to 2 precision and add comma to thousand separate
     for key, value in decs.iteritems():

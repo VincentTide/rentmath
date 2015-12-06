@@ -65,6 +65,9 @@ def rental_post():
         property_units = form.property_units.data
         if property_units == None:
             property_units = 1
+        down_payment = form.down_payment_percent.data
+        if down_payment == None:
+            down_payment = 0
         misc_income = form.misc_income.data
         if misc_income == None:
             misc_income = 0
@@ -101,7 +104,7 @@ def rental_post():
             'purchase_price': form.purchase_price.data,
             'closing_cost': closing_cost,
             'repair_cost': repair_cost,
-            'down_payment': form.down_payment_percent.data,
+            'down_payment': down_payment,
             'interest_rate': form.interest_rate.data,
             'loan_years': form.loan_years.data,
             'property_units': property_units,
