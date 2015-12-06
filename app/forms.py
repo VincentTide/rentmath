@@ -8,7 +8,7 @@ class RentalIncomeCalculatorForm(Form):
     purchase_price = IntegerField(validators=[DataRequired()])
     closing_cost = IntegerField(validators=[Optional()])
     repair_cost = IntegerField(validators=[Optional()])
-    down_payment_percent = FloatField()
+    down_payment_percent = FloatField(validators=[Optional()])
     interest_rate = FloatField()
     loan_years = IntegerField()
     property_units = IntegerField(validators=[Optional()])
