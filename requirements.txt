@@ -1,5 +1,4 @@
 Flask
-Flask-SQLAlchemy
 Flask-WTF
 Flask-Moment
 WTFOrms
