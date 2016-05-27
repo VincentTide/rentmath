@@ -7,3 +7,6 @@
 # Temp files
 *.pid
 celerybeat-schedule
+
+# BFG Repo-Cleaner
+bfg-1.12.12.jar
